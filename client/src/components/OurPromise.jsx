@@ -2,7 +2,7 @@ import Reveal from './Reveal.jsx';
 
 export default function OurPromise() {
   return (
-    <section id="promise" className="section alt">
+    <section id="promise" className="promise-sec">
       <div className="container narrow">
         <Reveal>
           <span className="eyebrow">Our promise</span>

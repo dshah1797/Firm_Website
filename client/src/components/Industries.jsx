@@ -14,9 +14,12 @@ export default function Industries() {
           {industries.map((n, i) => (
             <Reveal key={n.name} delay={(i % 4) * 0.07} y={20}>
               <div className="ind">
+                <img src={n.image} alt="" loading="lazy" />
                 <span>{String(i + 1).padStart(2, '0')}</span>
-                <h3>{n.name}</h3>
-                <p>{n.text}</p>
+                <div className="ind-text">
+                  <h3>{n.name}</h3>
+                  <p>{n.text}</p>
+                </div>
               </div>
             </Reveal>
           ))}

@@ -38,6 +38,9 @@ export default function Contact() {
             <li><b>Phone</b>+1 (555) 123-4567</li>
             <li><b>Location</b>Remote-first, serving clients worldwide</li>
           </ul>
+          <div className="contact-photo">
+            <img src="/images/contact.jpg" alt="A member of our team ready to help" loading="lazy" />
+          </div>
         </Reveal>
         <Reveal x={40} y={0}>
           <form className="form" onSubmit={submit}>

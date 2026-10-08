@@ -22,8 +22,6 @@ export const stats = [
 
 export const clients = ['FinTrack', 'MediConnect', 'ShopSphere', 'LogiFleet', 'EduNova', 'BuildRight', 'Voyago', 'AgriCore'];
 
-export const tech = ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Next.js', 'AWS', 'Docker', 'Kubernetes', 'Python', 'GraphQL'];
-
 export const why = [
   { title: 'Senior-led teams', text: 'Every project is staffed with experienced engineers, not a rotating bench of juniors.' },
   { title: 'Transparent delivery', text: 'Weekly demos, shared roadmaps and clear reporting so you always know where things stand.' },
@@ -32,14 +30,14 @@ export const why = [
 ];
 
 export const industries = [
-  { name: 'FinTech & Banking', text: 'Payments, lending, risk dashboards' },
-  { name: 'Healthcare', text: 'Telemedicine, records, scheduling' },
-  { name: 'Retail & E-commerce', text: 'Storefronts, inventory, loyalty' },
-  { name: 'Logistics', text: 'Fleet tracking, route optimisation' },
-  { name: 'Education', text: 'Learning platforms and portals' },
-  { name: 'Manufacturing', text: 'IoT, ERP, quality analytics' },
-  { name: 'Real Estate', text: 'Listings, CRM, virtual tours' },
-  { name: 'Travel & Hospitality', text: 'Booking engines and guest apps' },
+  { name: 'FinTech & Banking', image: '/images/ind-fintech.jpg', text: 'Payments, lending, risk dashboards' },
+  { name: 'Healthcare', image: '/images/ind-healthcare.jpg', text: 'Telemedicine, records, scheduling' },
+  { name: 'Retail & E-commerce', image: '/images/ind-retail.jpg', text: 'Storefronts, inventory, loyalty' },
+  { name: 'Logistics', image: '/images/ind-logistics.jpg', text: 'Fleet tracking, route optimisation' },
+  { name: 'Education', image: '/images/ind-education.jpg', text: 'Learning platforms and portals' },
+  { name: 'Manufacturing', image: '/images/ind-manufacturing.jpg', text: 'IoT, ERP, quality analytics' },
+  { name: 'Real Estate', image: '/images/ind-realestate.jpg', text: 'Listings, CRM, virtual tours' },
+  { name: 'Travel & Hospitality', image: '/images/ind-travel.jpg', text: 'Booking engines and guest apps' },
 ];
 
 export const process = [
@@ -50,8 +48,29 @@ export const process = [
 ];
 
 export const projects = [
-  { title: 'FinTrack Dashboard', tag: 'FinTech', text: 'Real-time analytics platform for a payments company, built to handle heavy transaction volume.', metric: '2M+', metricLabel: 'transactions per day' },
-  { title: 'MediConnect', tag: 'Healthcare', text: 'Telemedicine app with video consults, patient records and e-prescriptions.', metric: '120k', metricLabel: 'consultations in year one' },
-  { title: 'ShopSphere', tag: 'E-commerce', text: 'Headless storefront with a rebuilt checkout and personalised recommendations.', metric: '3x', metricLabel: 'conversion rate' },
-  { title: 'LogiFleet', tag: 'Logistics', text: 'Live fleet tracking and route optimisation across hundreds of vehicles.', metric: '-22%', metricLabel: 'fuel cost' },
+  {
+    title: 'Emergency QR',
+    tag: 'Healthcare tech',
+    url: 'https://emergencyqr-gen.vercel.app/',
+    image: '/projects/emergency-qr.jpg',
+    text: 'A full-stack emergency profile system. Users create a single profile that generates one stable QR code for instant, read-only access during emergencies. Built for reliability and quick access when it matters most.',
+    points: [
+      'Public emergency view showing only critical data',
+      'Owner-only edits via per-profile edit tokens',
+      'Mobile-first UI with English, Hindi and Gujarati',
+    ],
+  },
+  {
+    title: 'OverClocked',
+    tag: 'E-commerce platform',
+    url: 'https://over-clocked.vercel.app/',
+    image: '/projects/overclocked.jpg',
+    text: 'A specialised e-commerce platform for PC builders, gamers and hardware enthusiasts. Customers browse GPUs, CPUs, RAM, SSDs and cooling, manage cart and wishlist, and pay securely via Razorpay.',
+    points: [
+      'Three roles (Customer, Seller, Admin), each with a dedicated dashboard',
+      'Sellers list hardware with detailed specs, manage inventory and track orders',
+      'Admins control users, seller approvals and platform analytics',
+      'Secure sign-in, product image management and automated email notifications',
+    ],
+  },
 ];

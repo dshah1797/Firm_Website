@@ -24,6 +24,12 @@ export default function Process() {
             </div>
           ))}
         </div>
+        <Reveal y={40}>
+          <div className="banner">
+            <img src="/images/process.jpg" alt="Our team working together in an open office" loading="lazy" />
+            <p>Cross-functional squads, one shared goal: your launch.</p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
