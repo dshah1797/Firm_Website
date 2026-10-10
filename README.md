@@ -5,6 +5,7 @@ Company website built with the MERN stack: React (Vite) front end and an Express
 ```
 client/   React site (pages, components, images, brochure PDF)
 server/   Express API: saves enquiries to MongoDB and emails them to the team
+api/      Vercel entry points that reuse server/app.js (only used when hosted on Vercel)
 ```
 
 ## Run it on your computer
@@ -46,7 +47,18 @@ See `client/.env.example`: `VITE_SITE_URL` (your domain, for share previews and 
 
 ## Put it online
 
-**Option A, one server (simplest):** host the whole project on any Node host (Render, Railway, a VPS).
+**Option A, everything on Vercel (recommended, free plan is enough).** The site and the contact form both run on Vercel; nothing else to host. The root `vercel.json` and the `api/` folder are already set up for it.
+
+1. Push the project to GitHub.
+2. On <https://vercel.com> choose **Add New > Project**, import the repo, and leave **Root Directory** as the repo root (not `client`). The build settings come from `vercel.json`.
+3. Under **Environment Variables** add the same settings as `server/.env`: `MONGO_URI`, `SMTP_HOST` (`smtp.gmail.com`), `SMTP_PORT` (`465`), `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`. Also add `VITE_SITE_URL` (your live address, no trailing slash). Do **not** set `VITE_API_URL` or `CORS_ORIGIN`; they are not needed when everything is on one domain.
+4. In MongoDB Atlas open **Network Access > Add IP Address > Allow access from anywhere** (Vercel uses changing addresses).
+5. Deploy, then open `https://your-site/api/health`. It should show `"db":true,"mail":true`.
+6. To use your own domain: **Project > Settings > Domains**, then update `VITE_SITE_URL` and redeploy.
+
+Notes: settings starting with `VITE_` are baked in at build time, so redeploy after changing them. The spam rate limit (10 enquiries per 15 minutes per visitor) is kept per server instance on Vercel, so treat it as best-effort; the hidden spam field and validation still apply.
+
+**Option B, one Node server:** host the whole project on any Node host (Render, Railway, a VPS).
 
 ```bash
 npm run install:all
@@ -54,10 +66,7 @@ npm run build           # builds the site into client/dist
 npm start               # one server serves the site and the API
 ```
 
-**Option B, split:** the site on Vercel or Netlify and the API on Render or Railway.
-
-1. API: deploy the `server` folder (build `npm install`, start `npm start`). Add the settings above, and set `CORS_ORIGIN` to your site's address.
-2. Site: deploy the `client` folder. Set `VITE_API_URL` to the API's address and `VITE_SITE_URL` to your domain. `vercel.json` and `public/_redirects` already make addresses like `/services/chatbots` open directly.
+**Option C, split:** the site on Vercel or Netlify (deploy the `client` folder) and the API on Render or Railway (deploy the `server` folder: build `npm install`, start `npm start`). Set `VITE_API_URL` to the API's address, and `CORS_ORIGIN` on the API to the site's address.
 
 ## Where to edit things
 

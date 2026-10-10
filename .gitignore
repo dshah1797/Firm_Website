@@ -37,3 +37,6 @@ desktop.ini
 !.vscode/extensions.json
 .idea/
 *.swp
+
+# Vercel CLI link folder
+.vercel/
