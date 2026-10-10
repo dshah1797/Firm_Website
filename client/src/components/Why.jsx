@@ -12,9 +12,9 @@ export default function Why() {
         </Reveal>
         <div>
           <Reveal>
-            <span className="eyebrow">Why StackForge</span>
-            <h2>Engineering you can <em>rely on</em></h2>
-            <p className="lead">We combine the discipline of a large consultancy with the speed and care of a specialist team. Clear scope, honest estimates and software that keeps working.</p>
+            <span className="eyebrow">Why Netra Dynamics</span>
+            <h2>Your ideas, built <em>around your business.</em></h2>
+            <p className="lead">From your first website to connected business software, we shape every solution around your industry, your technology and your project scope.</p>
           </Reveal>
           <div className="why-list">
             {why.map((w, i) => (

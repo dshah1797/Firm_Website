@@ -1,10 +1,13 @@
-import { clients } from '../data.js';
+import { services } from '../data.js';
+
+const extra = ['WordPress websites', 'Full-stack websites', 'AI automation'];
 
 export default function Marquee() {
-  const items = [...clients, ...clients];
+  const base = [...extra, ...services.map((s) => s.title)];
+  const items = [...base, ...base];
   return (
-    <section className="clients" aria-label="Clients">
-      <p>Trusted by growing companies and established enterprises</p>
+    <section className="clients" aria-label="What we build">
+      <p>What we build</p>
       <div className="marquee">
         <div className="track">{items.map((t, i) => <span key={i}>{t}</span>)}</div>
       </div>

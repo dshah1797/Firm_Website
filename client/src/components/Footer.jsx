@@ -1,39 +1,47 @@
-import { services } from '../data.js';
+import { Link } from 'react-router-dom';
+import { company, services, waLink } from '../data.js';
+import AnchorLink from './AnchorLink.jsx';
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container foot-grid">
         <div className="foot-brand">
-          <a href="#home" className="logo"><span>S</span> StackForge</a>
-          <p>A full-stack software and digital engineering firm helping businesses design, build and scale reliable products.</p>
+          <Link to="/" className="logo" aria-label="Netra Dynamics home"><img src="/brand/logo-white.png" alt="Netra Dynamics" /></Link>
+          <p>{company.tagline}. Websites, software and automation, built for your next big move.</p>
         </div>
         <div>
           <h4>Services</h4>
-          <ul>{services.slice(0, 6).map((s) => <li key={s.title}><a href="#services">{s.title}</a></li>)}</ul>
+          <ul>{services.slice(3, 9).map((s) => <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.title}</Link></li>)}</ul>
         </div>
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="#about">About us</a></li>
-            <li><a href="#work">Case studies</a></li>
-            <li><a href="#industries">Industries</a></li>
-            <li><a href="#process">How we work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><AnchorLink id="pricing">Packages</AnchorLink></li>
+            <li><AnchorLink id="about">Why us</AnchorLink></li>
+            <li><AnchorLink id="work">Our work</AnchorLink></li>
+            <li><AnchorLink id="process">How we work</AnchorLink></li>
+            <li><AnchorLink id="contact">Contact</AnchorLink></li>
+            <li><a href="/Netra-Dynamics-Brochure.pdf" download="Netra-Dynamics-Brochure.pdf">Download brochure</a></li>
           </ul>
         </div>
         <div>
           <h4>Get in touch</h4>
           <ul>
-            <li>hello@stackforge.dev</li>
-            <li>+1 (555) 123-4567</li>
-            <li>Remote-first, worldwide</li>
+            <li><a href={`mailto:${company.email}`}>{company.email}</a></li>
+            {company.whatsapp.map((w) => (
+              <li key={w.number}><a href={waLink(w.number)} target="_blank" rel="noopener noreferrer">WhatsApp {w.display}</a></li>
+            ))}
           </ul>
         </div>
       </div>
       <div className="container foot-bar">
-        <span>© {new Date().getFullYear()} StackForge. All rights reserved.</span>
-        <span><a href="#home">Privacy</a><a href="#home">Terms</a><a href="#home">Back to top ↑</a></span>
+        <span>© {new Date().getFullYear()} Netra Dynamics. All rights reserved.</span>
+        <span>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/terms">Terms of Use</Link>
+          <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0 }); }}>Back to top ↑</a>
+        </span>
       </div>
     </footer>
   );

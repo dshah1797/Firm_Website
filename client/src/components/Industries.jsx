@@ -7,8 +7,8 @@ export default function Industries() {
       <div className="container">
         <Reveal className="sec-head">
           <span className="eyebrow">Industries</span>
-          <h2>Deep experience across <em>sectors</em></h2>
-          <p>Domain knowledge shortens discovery and avoids costly rework.</p>
+          <h2>Tailored for <em>your industry</em></h2>
+          <p>Tailored solutions for your industry, technology and project scope.</p>
         </Reveal>
         <div className="ind-grid">
           {industries.map((n, i) => (

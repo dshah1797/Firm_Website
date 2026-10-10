@@ -1,25 +1,38 @@
+import { lazy, Suspense, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
-import Hero from './components/Hero.jsx';
-import Marquee from './components/Marquee.jsx';
-import Services from './components/Services.jsx';
-import Why from './components/Why.jsx';
-import Work from './components/Work.jsx';
-import Stats from './components/Stats.jsx';
-import Industries from './components/Industries.jsx';
-import Process from './components/Process.jsx';
-import OurPromise from './components/OurPromise.jsx';
-import CtaBanner from './components/CtaBanner.jsx';
-import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import ScrollManager from './components/ScrollManager.jsx';
+import WhatsAppFab from './components/WhatsAppFab.jsx';
+import Home from './pages/Home.jsx';
+import { initAnalytics } from './analytics.js';
+
+// the home page loads first; the other pages are fetched only when visited
+const ServicePage = lazy(() => import('./pages/ServicePage.jsx'));
+const Privacy = lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.Privacy })));
+const Terms = lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.Terms })));
+const NotFound = lazy(() => import('./pages/NotFound.jsx'));
 
 export default function App() {
+  useEffect(() => initAnalytics(), []);
   return (
     <>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <ScrollManager />
       <Navbar />
-      <main>
-        <Hero /><Marquee /><Services /><Why /><Work /><Stats /><Industries /><Process /><OurPromise /><CtaBanner /><Contact />
+      <main id="main">
+        <Suspense fallback={<div className="page-loading" aria-busy="true" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services/:slug" element={<ServicePage />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
+      <WhatsAppFab />
     </>
   );
 }

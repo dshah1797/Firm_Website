@@ -8,7 +8,7 @@ export default function Work() {
         <Reveal className="sec-head">
           <span className="eyebrow">Our work</span>
           <h2>Products we've <em>built and shipped</em></h2>
-          <p>Live, production applications, from emergency-response tools to full e-commerce platforms.</p>
+          <p>Live projects, from emergency-response tools and full e-commerce platforms to WordPress websites.</p>
         </Reveal>
         <div className="work-list">
           {projects.map((p, i) => (

@@ -1,13 +1,19 @@
 {
-  "name": "stackforge-server",
+  "name": "netra-dynamics-server",
   "private": true,
   "type": "module",
-  "scripts": { "dev": "node --watch index.js", "start": "node index.js" },
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "test:mail": "node scripts/test-mail.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "express-rate-limit": "^7.4.0",
-    "mongoose": "^8.7.0"
+    "helmet": "^8.3.0",
+    "mongoose": "^8.7.0",
+    "nodemailer": "^10.0.16"
   }
 }

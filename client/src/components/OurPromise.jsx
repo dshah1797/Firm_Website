@@ -5,11 +5,11 @@ export default function OurPromise() {
     <section id="promise" className="promise-sec">
       <div className="container narrow">
         <Reveal>
-          <span className="eyebrow">Our promise</span>
+          <span className="eyebrow">Netra Dynamics</span>
           <p className="promise">
-            We don't just write code. We build technology that <em>grows your business.</em>
+            Ideas into <em>digital experiences.</em>
           </p>
-          <div className="promise-sign"><i />StackForge</div>
+          <div className="promise-sign"><i />Built for your next big move.</div>
         </Reveal>
       </div>
     </section>

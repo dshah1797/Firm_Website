@@ -1,19 +1,27 @@
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import AnchorLink from './AnchorLink.jsx';
 
-const links = ['services', 'about', 'work', 'industries', 'process', 'contact'];
+const links = [['services', 'Services'], ['pricing', 'Packages'], ['work', 'Our work'], ['process', 'Process'], ['contact', 'Contact']];
 
 export default function Navbar() {
-  const [solid, setSolid] = useState(false);
+  const { pathname } = useLocation();
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 25 });
 
   useEffect(() => {
-    const on = () => setSolid(window.scrollY > 40);
+    const on = () => setScrolled(window.scrollY > 40);
+    on();
     window.addEventListener('scroll', on);
     return () => window.removeEventListener('scroll', on);
   }, []);
+
+  useEffect(() => setOpen(false), [pathname]);
+
+  const solid = scrolled || pathname !== '/' || open;
 
   return (
     <motion.header
@@ -21,12 +29,12 @@ export default function Navbar() {
       initial={{ y: -80 }} animate={{ y: 0 }} transition={{ duration: 0.7, ease: 'easeOut' }}
     >
       <div className="container nav-inner">
-        <a href="#home" className="logo"><span>S</span> StackForge</a>
+        <Link to="/" className="logo" aria-label="Netra Dynamics home"><img src="/brand/logo.png" alt="Netra Dynamics" /></Link>
         <nav className={open ? 'open' : ''}>
-          {links.map((l) => (
-            <a key={l} href={`#${l}`} onClick={() => setOpen(false)}>{l}</a>
+          {links.map(([id, label]) => (
+            <AnchorLink key={id} id={id} onClick={() => setOpen(false)}>{label}</AnchorLink>
           ))}
-          <a href="#contact" className="btn btn-sm" onClick={() => setOpen(false)}>Get a quote</a>
+          <AnchorLink id="contact" className="btn btn-sm" onClick={() => setOpen(false)}>Get a quote</AnchorLink>
         </nav>
         <button className="burger" aria-label="Menu" onClick={() => setOpen(!open)}>{open ? '✕' : '☰'}</button>
       </div>

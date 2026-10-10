@@ -1,3 +1,4 @@
+import { waLink } from '../data.js';
 import Reveal from './Reveal.jsx';
 
 export default function CtaBanner() {
@@ -7,10 +8,13 @@ export default function CtaBanner() {
         <Reveal>
           <div className="cta-banner">
             <div>
-              <h2>Ready to build something that lasts?</h2>
-              <p>Book a free 30-minute consultation with a senior engineer and get a clear plan, timeline and estimate.</p>
+              <h2>Have something specific in mind?</h2>
+              <p>Tell us what you want to build. Let's discuss the right solution.</p>
             </div>
-            <a href="#contact" className="btn light">Book a consultation <span aria-hidden="true">→</span></a>
+            <div className="cta-actions">
+              <a href="#contact" className="btn light">Discuss your project <span aria-hidden="true">→</span></a>
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="btn outline-light">WhatsApp us</a>
+            </div>
           </div>
         </Reveal>
       </div>
