@@ -11,6 +11,8 @@ build/
 .env.*
 !.env.example
 
+
+docs/
 # Logs
 logs/
 *.log

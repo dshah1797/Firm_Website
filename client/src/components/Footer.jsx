@@ -29,9 +29,7 @@ export default function Footer() {
           <h4>Get in touch</h4>
           <ul>
             <li><a href={`mailto:${company.email}`}>{company.email}</a></li>
-            {company.whatsapp.map((w) => (
-              <li key={w.number}><a href={waLink(w.number)} target="_blank" rel="noopener noreferrer">WhatsApp {w.display}</a></li>
-            ))}
+            <li><a href={waLink()} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
           </ul>
         </div>
       </div>
