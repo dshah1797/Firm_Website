@@ -3,9 +3,7 @@ export const company = {
   tagline: 'Ideas into digital experiences',
   email: 'netradynamics@gmail.com',
   whatsapp: [
-    { display: '+91 97264 91557', number: '919726491557' },
-    { display: '+91 84014 63795', number: '918401463795' },
-    { display: '+91 79901 26127', number: '917990126127' },
+    { display: '+91 97122 65808', number: '919712265808' },
   ],
 };
 
