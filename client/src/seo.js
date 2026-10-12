@@ -1,6 +1,6 @@
 const SITE = (import.meta.env.VITE_SITE_URL || '').replace(/\/$/, '');
 export const DEFAULT_DESCRIPTION =
-  'Netra Dynamics: ideas into digital experiences. WordPress and full-stack websites, business software, AI automation, chatbots, SaaS, CRM and digital marketing.';
+  'Netra Dynamics builds WordPress and full-stack websites, business software, AI automation, chatbots, SaaS and CRM, and runs digital marketing. WordPress websites from ₹5,999.';
 
 const clip = (s, n = 158) => (s.length > n ? s.slice(0, s.lastIndexOf(' ', n)) + '...' : s);
 

@@ -15,7 +15,7 @@ import { setSeo } from '../seo.js';
 
 export default function Home() {
   useEffect(() => {
-    setSeo({ title: 'Netra Dynamics | Ideas into digital experiences', path: '/' });
+    setSeo({ title: 'Netra Dynamics | Websites, Software & AI Automation', path: '/' });
   }, []);
   return (
     <>
